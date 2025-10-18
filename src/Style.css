@@ -1,3 +1,4 @@
+/* ======= GLOBAL ======= */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -19,15 +20,17 @@ body {
   100% {background-position: 0% 50%;}
 }
 
+/* ======= HEADER ======= */
 h1 {
-  color: #fff;
   font-size: 3rem;
   text-align: center;
   margin-bottom: 5px;
   background: linear-gradient(90deg, #ff416c, #ff4b2b, #00c6ff, #6a11cb);
   background-size: 400% 400%;
-  -webkit-background-clip: text;
+  -webkit-background-clip: text;  /* Chrome, Safari, Edge */
   -webkit-text-fill-color: transparent;
+  background-clip: text;           /* Firefox */
+  color: transparent;               /* Firefox fallback */
   text-shadow: 0 2px 15px rgba(0,0,0,0.6);
   animation: gradientText 8s ease infinite;
 }
@@ -38,6 +41,7 @@ h1 {
   100% {background-position: 0% 50%;}
 }
 
+/* ======= CAPTION ======= */
 h1 + p {
   font-size: 1.3rem;
   color: #00ffff;
@@ -59,6 +63,7 @@ h1 + p {
   100% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #0072ff, 0 0 30px #00ffff, 0 0 40px #0072ff; }
 }
 
+/* ======= PROGRESS TRACKER ======= */
 .progress-tracker {
   width: 90%;
   max-width: 450px;
@@ -85,7 +90,7 @@ h1 + p {
   letter-spacing: 0.5px;
 }
 
-
+/* ======= PROGRESS BAR ======= */
 .progress-bar {
   width: 100%;
   height: 30px;
@@ -151,6 +156,7 @@ h1 + p {
   100% {background-position: 0% 50%;}
 }
 
+/* ======= FORM ======= */
 form {
   width: 90%;
   max-width: 450px;
@@ -222,6 +228,7 @@ select option {
   color: #f0f0f0;
 }
 
+/* ======= BUTTON ======= */
 button {
   align-self: flex-start;
   padding: 10px 20px;
@@ -245,34 +252,13 @@ button:hover {
   50% { box-shadow: 0 10px 30px rgba(255, 75, 43, 0.8); }
 }
 
+/* ======= TASK LIST ======= */
 ul {
   list-style: none;
   padding: 0;
   margin: 30px 0;
   width: 90%;
   max-width: 450px;
-  position: relative;
-}
-
-ul::before {
-  content: "";
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #00ffff;
-  box-shadow: 
-    50px 20px #ffeb3b, 100px 80px #ff416c, 150px 30px #00ffff,
-    200px 100px #ff4b2b, 250px 50px #ffeb3b, 300px 120px #00ffff;
-  animation: floatParticles 8s linear infinite;
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-@keyframes floatParticles {
-  0% { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(-30px) translateX(10px); }
-  100% { transform: translateY(0) translateX(0); }
 }
 
 li {
@@ -305,38 +291,6 @@ li.completed::after {
   0% {transform: scale(0);}
   50% {transform: scale(1.3);}
   100% {transform: scale(1);}
-}
-
-li::before, li::after {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #00ffff;
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0);
-}
-
-li:hover::before {
-  animation: sparkle 0.8s ease forwards;
-  top: 10%;
-  left: 20%;
-  opacity: 1;
-}
-
-li:hover::after {
-  animation: sparkle 0.8s ease forwards;
-  top: 60%;
-  left: 80%;
-  opacity: 1;
-}
-
-@keyframes sparkle {
-  0% { transform: scale(0); opacity: 1; }
-  50% { transform: scale(1.5); opacity: 0.8; }
-  100% { transform: translateY(-20px) scale(0); opacity: 0; }
 }
 
 li:hover {
