@@ -27,16 +27,20 @@ export default function App() {
       setTasks(tasks.filter((_, i) => i != index));
   }
 
+    const clearTasks = () => {
+      setTasks([]);
+    }
+
   return(
     <div>
       <h1>TaskZen</h1>
-      <p>Our friendly TaskManager</p>
+      <p>Organize. Focus. Achieve</p>
       <Taskform addTask = {addTask}/>
       <TaskList tasks = {tasks} 
       updateTask = {updateTask}
       deleteTask = {deleteTask}/>
       <Progresstracker tasks = {tasks}/>
-      <button>Clear all tasks</button>
+      <button onClick={clearTasks}>Clear all tasks</button>
     </div>
   )
 }
